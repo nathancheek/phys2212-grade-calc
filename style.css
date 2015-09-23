@@ -1,0 +1,53 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+body > .container {
+  padding: 60px 15px 0;
+}
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.footer-vertical-outer {
+    display: inline-flex;
+    height: 100%;
+}
+
+.footer-vertical-inner {
+    margin: auto 60px;
+}
+
+.inputs {
+    display: block;
+    overflow: auto;
+    margin-bottom: 30px;
+}
+
+.inputs h3 {
+    text-align: center;
+}
+
+#result {
+    display: none;
+    overflow: auto;
+    margin-bottom: 40px;
+}
+
+.result-row {
+    overflow: auto;
+    margin: 20px 0;
+}
