@@ -45,6 +45,7 @@ body > .container {
     display: none;
     overflow: auto;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .result-row {
