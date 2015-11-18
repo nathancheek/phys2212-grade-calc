@@ -185,8 +185,12 @@
 
             $("#result").show();
         }
+	//Keep track of how many hits this page is getting
+	ping = document.createElement("img");
+	ping.style = "display:none";
+	ping.src = "http://dorm.nathancheek.com:3000/phys-ping";
         </script>
-
+	<noscript><img style="display:none" src="http://dorm.nathancheek.com:3000/phys-ping-nojs"/></noscript>
         <footer class="footer">
           <div class="footer-vertical-outer container">
             <p class="text-muted footer-vertical-inner">Created by <a href="http://nathancheek.com">Nathan Cheek</a></p>
