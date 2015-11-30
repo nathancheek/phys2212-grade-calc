@@ -81,6 +81,10 @@
                     <h3>Public Lectures</h3>
                     <input type="number" class="form-control" id="publiclectures" placeholder="Grade">
                 </div>
+                <div class="columns">
+                    <h3>Dead Week Assessment</h3>
+                    <input type="number" class="form-control" id="deadweekassessment" placeholder="Grade">
+                </div>
             </div>
             <div class="text-center">
                 <button type="button" class="btn btn-lg btn-success" onclick="calculate()">Calculate</button>
@@ -89,21 +93,30 @@
             <div id="result">
                 <div class="result-row">
                     <h2 class="text-center">Categories</h2>
-                    <div class="columns">
-                        <h3>Test average</h3>
-                        <div id="testResult"></div>
+                    <div class="panel panel-default col-md-5 col-sm-12">
+                        <div class="panel-body">
+                            <div class="col-xs-6">
+                                <h3>Test percentage</h3>
+                                <div id="testResult"></div>
+                            </div>
+                            <div class="col-xs-6">
+                                <h3>Core percentage</h3>
+                                <div id="coreResult"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="columns">
-                        <h3>Extra credit</h3>
-                        <div id="extracreditResult"></div>
-                    </div>
-                    <div class="columns">
-                        <h3>Bucket</h3>
-                        <div id="bucketResult"></div>
-                    </div>
-                    <div class="columns">
-                        <h3>Core</h3>
-                        <div id="coreResult"></div>
+                    <div class="col-md-2"></div>
+                    <div class="panel panel-default col-md-5 col-sm-12">
+                        <div class="panel-body">
+                            <div class="col-xs-6">
+                                <h3>Extra credit points</h3>
+                                <div id="extracreditResult"></div>
+                            </div>
+                            <div class="col-xs-6">
+                                <h3>Bucket points</h3>
+                                <div id="bucketResult"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="result-row">
@@ -130,8 +143,9 @@
             var wiki = parseFloat($("#wiki").val());
             var reading = parseFloat($("#reading").val());
             var publiclectures = parseFloat($("#publiclectures").val());
+            var deadweekassessment = parseFloat($("#deadweekassessment").val());
 
-            if (isNaN(test1+test2+test3+test4+exam+lab+labquiz+clickers+homework+optional+reading+publiclectures)) {
+            if (isNaN(test1+test2+test3+test4+exam+lab+labquiz+clickers+homework+optional+reading+publiclectures+deadweekassessment)) {
                 alert("Please fill out all sections");
                 return;
             }
@@ -171,6 +185,7 @@
                 }
                 bucketPoints = 10;
             }
+            extracreditPoints += deadweekassessment * .01;
             finalGrade += bucketPoints;
             var bucketGrade = bucketPoints / .10;
 
@@ -178,10 +193,10 @@
             var extracreditGrade = extracreditPoints / .10;
             //Set values in page
             $("#testResult").text(Math.round(testGrade*100)/100 + "%");
-            $("#extracreditResult").text(Math.round(extracreditGrade*100)/100 + "%");
-            $("#bucketResult").text(Math.round(bucketGrade*100)/100 + "%");
+            $("#extracreditResult").text(Math.round(extracreditPoints*100)/100 + " points");
+            $("#bucketResult").text(Math.round(bucketPoints*100)/100 + " points");
             $("#coreResult").text(Math.round(coreGrade*100)/100 + "%");
-            $("#finalResult").text(Math.round(finalGrade*100)/100 + "%"); 
+            $("#finalResult").text(Math.round(finalGrade*100)/100 + "%");
 
             $("#result").show();
         }
