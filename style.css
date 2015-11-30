@@ -46,9 +46,22 @@ body > .container {
     overflow: auto;
     margin-bottom: 40px;
     text-align: center;
+    background-image: url(https://dl.dropboxusercontent.com/s/oft4e3pe3pd0m31/Greco.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .result-row {
     overflow: auto;
     margin: 20px 0;
+}
+
+.panel {
+    background-color: transparent;
+    border-style: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0);
+       -moz-box-shadow: 0 5px 15px rgba(0,0,0,0);
+         -o-box-shadow: 0 5px 15px rgba(0,0,0,0);
 }
